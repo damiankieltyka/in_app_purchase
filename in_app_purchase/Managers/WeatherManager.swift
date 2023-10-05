@@ -20,5 +20,3 @@ final class WeatherManager {
         
     }
 }
-
-// 08:46

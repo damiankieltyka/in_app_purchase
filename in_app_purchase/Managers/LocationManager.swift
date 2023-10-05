@@ -5,13 +5,9 @@
 //  Created by Damian Kiełtyka on 04/10/2023.
 //
 
-import CoreLocation
 import Foundation
+import WeatherKit
 
 final class LocationManager: NSObject {
     static let shared = LocationManager()
-    
-    private init() {
-        
-    }
 }
