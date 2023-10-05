@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import WeatherKit
+
+final class LocationManager: NSObject {
+    static let shared = LocationManager()
+}
