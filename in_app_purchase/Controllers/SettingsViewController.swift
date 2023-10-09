@@ -15,11 +15,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        view.addSubview(primaryView)
-        addConstraints()
+        setUpView()
     }
     
-    private func addConstraints() {
+    private func setUpView() {
+        view.addSubview(primaryView)
+        
         NSLayoutConstraint.activate([
             primaryView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             primaryView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -27,5 +28,4 @@ class SettingsViewController: UIViewController {
             primaryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-    
 }
