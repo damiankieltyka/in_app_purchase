@@ -12,11 +12,21 @@ import WeatherKit
 final class WeatherManager {
     static let shared = WeatherManager()
     
-    private init() {
-        
-    }
+    let service = WeatherService.shared
     
-    public func getWeather(for location: CLLocation) {
-        
+    private init() {}
+    
+    public func getWeather(for location: CLLocation, completion: @escaping () -> Void) {
+        Task {
+            do {
+                let result = try await service.weather(for: location)
+                print("Current: \(result.currentWeather)")
+                print("Hourly: \(result.hourlyForecast)")
+                print("Daily: \(result.dailyForecast)")
+                completion()
+            } catch {
+                print("XXXX:" + String(describing: error))
+            }
+        }
     }
 }
