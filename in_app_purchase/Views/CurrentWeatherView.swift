@@ -9,6 +9,8 @@ import UIKit
 
 final class CurrentWeatherView: UIView {
     
+    private var collectionView: UICollectionView?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .blue
@@ -18,4 +20,22 @@ final class CurrentWeatherView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public func reload() {
+        
+    }
+    
+    private func createCollectionView() {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+            return self.layout(for: sectionIndex)
+        }
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView = collectionView
+    }
+    
+    private func layout(for section: Int) -> NSCollectionLayoutSection {
+        
+    }
 }
+// 14:54
