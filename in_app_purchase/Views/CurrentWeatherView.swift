@@ -31,11 +31,49 @@ final class CurrentWeatherView: UIView {
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        addSubview(collectionView)
         self.collectionView = collectionView
     }
     
-    private func layout(for section: Int) -> NSCollectionLayoutSection {
+    private func layout(for sectionIndex: Int) -> NSCollectionLayoutSection {
+        let section = CurrentWeatherSection.allCases[sectionIndex]
         
+        switch section {
+        case .current:
+            let item = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            ))
+            
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.75)),
+                subitems: [item])
+            
+            return NSCollectionLayoutSection(group: group)
+        case .hourly:
+            let item = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            ))
+            
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.75)),
+                subitems: [item])
+            
+            return NSCollectionLayoutSection(group: group)
+        case .daily:
+            let item = NSCollectionLayoutItem(layoutSize: .init(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            ))
+            
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.75)),
+                subitems: [item])
+            
+            return NSCollectionLayoutSection(group: group)
+        }
     }
 }
-// 14:54
