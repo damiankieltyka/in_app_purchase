@@ -12,7 +12,7 @@ final class CurrentWeatherCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemCyan
+        contentView.backgroundColor = .systemPurple
     }
     
     required init?(coder: NSCoder) {

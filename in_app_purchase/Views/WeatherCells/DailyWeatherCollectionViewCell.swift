@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class DailyCollectionViewCell: UICollectionViewCell {
-    static let identifier = String(describing: DailyCollectionViewCell.self)
+final class DailyWeatherCollectionViewCell: UICollectionViewCell {
+    static let identifier = String(describing: DailyWeatherCollectionViewCell.self)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemRed
+        contentView.backgroundColor = .systemMint
     }
     
     required init?(coder: NSCoder) {
