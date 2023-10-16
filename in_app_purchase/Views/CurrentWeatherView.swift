@@ -72,11 +72,14 @@ final class CurrentWeatherView: UIView {
                 heightDimension: .fractionalHeight(1.0)
             ))
             
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.75)),
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .absolute(150)),
                 subitems: [item])
+            group.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 2, bottom: 1, trailing: 2)
             
-            return NSCollectionLayoutSection(group: group)
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuous
+            return section
         case .daily:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
@@ -84,8 +87,9 @@ final class CurrentWeatherView: UIView {
             ))
             
             let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.75)),
+                layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100)),
                 subitems: [item])
+            group.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
             
             return NSCollectionLayoutSection(group: group)
         }
@@ -98,7 +102,8 @@ extension CurrentWeatherView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if section == 0 { return 1 }
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
