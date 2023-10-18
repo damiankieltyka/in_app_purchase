@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import WeatherKit
 
 struct CurrentWeatherCollectionViewCellViewModel {
+    private let model: CurrentWeather
     
+    init(model: CurrentWeather) {
+        self.model = model
+    }
 }

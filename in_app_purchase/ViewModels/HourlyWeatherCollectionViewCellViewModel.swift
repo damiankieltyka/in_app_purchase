@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import WeatherKit
 
 struct HourlyWeatherCollectionViewCellViewModel {
+    private let model: HourWeather
     
+    init(model: HourWeather) {
+        self.model = model
+    }
 }
-
-// 06:56

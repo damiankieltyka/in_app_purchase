@@ -9,6 +9,7 @@ import UIKit
 
 final class CurrentWeatherView: UIView {
     
+    private var viewModel: [WeatherViewModel] = []
     private var collectionView: UICollectionView?
     
     override init(frame: CGRect) {
@@ -21,8 +22,9 @@ final class CurrentWeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func reload() {
-        
+    public func configure(with viewModel: [WeatherViewModel]) {
+        self.viewModel = viewModel
+        collectionView?.reloadData()
     }
     
     private func createCollectionView() {
@@ -98,26 +100,33 @@ final class CurrentWeatherView: UIView {
 
 extension CurrentWeatherView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return viewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 { return 1 }
-        return 12
+        switch viewModel[section] {
+        case .current:
+            return 1
+        case .hourly(let viewModels):
+            return viewModels.count
+        case .daily(let viewModels):
+            return viewModels.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
+        switch viewModel[indexPath.section] {
+        case .current(let viewModel):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CurrentWeatherCollectionViewCell.identifier, for: indexPath) as? CurrentWeatherCollectionViewCell else {
                 fatalError()
             }
             return cell
-        } else if indexPath.section == 1 {
+        case .hourly(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyWeatherCollectionViewCell.identifier, for: indexPath) as? HourlyWeatherCollectionViewCell else {
                 fatalError()
             }
             return cell
-        } else {
+        case .daily(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyWeatherCollectionViewCell.identifier, for: indexPath) as? DailyWeatherCollectionViewCell else {
                 fatalError()
             }
@@ -125,3 +134,5 @@ extension CurrentWeatherView: UICollectionViewDataSource {
         }
     }
 }
+
+// 10:57

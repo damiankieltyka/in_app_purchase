@@ -9,6 +9,6 @@ import Foundation
 
 enum WeatherViewModel {
     case current(viewModel: CurrentWeatherCollectionViewCellViewModel)
-    case hourly(viewModel: HourlyWeatherCollectionViewCellViewModel)
-    case daily
+    case hourly(viewModel: [HourlyWeatherCollectionViewCellViewModel])
+    case daily(viewModel: [DailyWeatherCollectionViewCellViewModel])
 }
