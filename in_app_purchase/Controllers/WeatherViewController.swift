@@ -44,5 +44,3 @@ class WeatherViewController: UIViewController {
         ])
     }
 }
-
-// 16:48
