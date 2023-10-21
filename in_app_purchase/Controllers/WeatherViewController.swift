@@ -15,6 +15,16 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         setUpView()
         getLocation()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "crown"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didDapUpgrade))
+    }
+    
+    @objc
+    private func didDapUpgrade() {
+        
     }
     
     private func getLocation() {
