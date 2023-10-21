@@ -37,6 +37,10 @@ final class HourlyWeatherCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubview(tempLabel)
         contentView.addSubview(icon)
         contentView.addSubview(dateLabel)

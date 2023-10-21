@@ -21,7 +21,7 @@ final class CurrentWeatherCollectionViewCell: UICollectionViewCell {
     private let conditionLabel: UILabel = {
         let conditionLabel = UILabel()
         conditionLabel.textAlignment = .left
-        conditionLabel.font = .systemFont(ofSize: 64, weight: .regular)
+        conditionLabel.font = .systemFont(ofSize: 44, weight: .regular)
         conditionLabel.translatesAutoresizingMaskIntoConstraints = false
         return conditionLabel
     }()
