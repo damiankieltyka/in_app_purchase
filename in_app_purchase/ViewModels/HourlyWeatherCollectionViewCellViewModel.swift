@@ -11,12 +11,6 @@ import WeatherKit
 struct HourlyWeatherCollectionViewCellViewModel {
     private let model: HourWeather
     
-    static let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        
-        return formatter
-    }()
-    
     init(model: HourWeather) {
         self.model = model
     }
