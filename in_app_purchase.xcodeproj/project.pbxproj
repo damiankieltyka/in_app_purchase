@@ -13,6 +13,8 @@
 		6A0AFCD22AD9F3B300E3C8F8 /* DailyWeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AFCD12AD9F3B300E3C8F8 /* DailyWeatherCollectionViewCell.swift */; };
 		6A1671702AD2AFBA00FD7C78 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16716F2AD2AFBA00FD7C78 /* CurrentWeatherView.swift */; };
 		6A1671722AD2B00900FD7C78 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1671712AD2B00900FD7C78 /* SettingsView.swift */; };
+		6A3384752AE5C31500E45240 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3384742AE5C31500E45240 /* RevenueCat */; };
+		6A3384772AE5C31500E45240 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3384762AE5C31500E45240 /* RevenueCatUI */; };
 		6A3815262ACCC901000193C1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3815252ACCC901000193C1 /* LocationManager.swift */; };
 		6A3815282ACCC90F000193C1 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3815272ACCC90F000193C1 /* IAPManager.swift */; };
 		6A38152A2ACCC93C000193C1 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3815292ACCC93C000193C1 /* WeatherManager.swift */; };
@@ -37,6 +39,7 @@
 		6A0AFCD12AD9F3B300E3C8F8 /* DailyWeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A16716F2AD2AFBA00FD7C78 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
 		6A1671712AD2B00900FD7C78 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6A3384782AE5CA7000E45240 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = Configuration.storekit; path = in_app_purchase/Other/Configuration.storekit; sourceTree = SOURCE_ROOT; };
 		6A3815252ACCC901000193C1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6A3815272ACCC90F000193C1 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		6A3815292ACCC93C000193C1 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3384772AE5C31500E45240 /* RevenueCatUI in Frameworks */,
+				6A3384752AE5C31500E45240 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 				6AEF82A42ACCB70000832DA4 /* SceneDelegate.swift */,
 				6AEF82AB2ACCB70100832DA4 /* Assets.xcassets */,
 				6AEF82AD2ACCB70100832DA4 /* LaunchScreen.storyboard */,
+				6A3384782AE5CA7000E45240 /* Configuration.storekit */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -186,6 +192,10 @@
 			dependencies = (
 			);
 			name = in_app_purchase;
+			packageProductDependencies = (
+				6A3384742AE5C31500E45240 /* RevenueCat */,
+				6A3384762AE5C31500E45240 /* RevenueCatUI */,
+			);
 			productName = in_app_purchase;
 			productReference = 6AEF829F2ACCB70000832DA4 /* in_app_purchase.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +224,9 @@
 				Base,
 			);
 			mainGroup = 6AEF82962ACCB70000832DA4;
+			packageReferences = (
+				6A3384732AE5C31500E45240 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
 			productRefGroup = 6AEF82A02ACCB70000832DA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -473,6 +486,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A3384732AE5C31500E45240 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A3384742AE5C31500E45240 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A3384732AE5C31500E45240 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		6A3384762AE5C31500E45240 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A3384732AE5C31500E45240 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6AEF82972ACCB70000832DA4 /* Project object */;
 }
