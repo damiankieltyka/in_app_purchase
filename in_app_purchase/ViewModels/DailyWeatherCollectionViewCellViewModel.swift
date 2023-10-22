@@ -30,7 +30,6 @@ struct DailyWeatherCollectionViewCellViewModel {
     
     public var day: String {
         let day = Calendar.current.component(.weekday, from: model.date)
-        print(day)
         return string(from: day)
     }
     
