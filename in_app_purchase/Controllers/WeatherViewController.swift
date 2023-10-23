@@ -5,6 +5,8 @@
 //  Created by Damian Kiełtyka on 03/10/2023.
 //
 
+import RevenueCat
+import RevenueCatUI
 import UIKit
 
 class WeatherViewController: UIViewController {
@@ -24,7 +26,9 @@ class WeatherViewController: UIViewController {
     
     @objc
     private func didDapUpgrade() {
-        
+        let vc = PaywallViewController()
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     private func getLocation() {
@@ -54,3 +58,16 @@ class WeatherViewController: UIViewController {
         ])
     }
 }
+
+extension WeatherViewController: PaywallViewControllerDelegate {
+    func paywallViewController(_ controller: PaywallViewController, didFinishPurchasingWith customerInfo: CustomerInfo) {
+        print("Purchased: \(customerInfo)")
+    }
+    
+    func paywallViewController(_ controller: PaywallViewController, didFinishRestoringWith customerInfo: CustomerInfo) {
+        print("Restored: \(customerInfo)")
+    }
+}
+
+
+// 04:00
