@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import RevenueCat
 
 final class IAPManager {
     static let shared = IAPManager()
     
-    private init() {
-        
+    private init() {}
+    
+    func isSubscribed(completion: @escaping (Bool) -> Void) {
+        Purchases.shared.getCustomerInfo { info, error in
+            guard let subscriptions = info?.activeSubscriptions else { return }
+            print("XXX: \(subscriptions)")
+            completion(!subscriptions.isEmpty)
+        }
     }
 }
